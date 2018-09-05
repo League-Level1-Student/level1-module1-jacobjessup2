@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /*
  *    Copyright (c) The League of Amazing Programmers 2013-2017
  *    Level 1
@@ -5,16 +7,22 @@
 
 public class Backpack
 {
-	private Pencil pencil;
-	private Ruler ruler;
-	private Textbook textbook;
+	private Pencil pencil = new Pencil();
+	private Ruler ruler = new Ruler();
+	private Textbook textbook = new Textbook();
 
 	private void packAndCheck()
 	{
 		// Your mission is to go to school.
 		// 1. First you need to put all your supplies into your backpack - use the putInBackpack(...) methods
+Backpack pack = new Backpack();
 
+pack.putInBackpack(pencil);
+pack.putInBackpack(ruler);
+pack.putInBackpack(textbook);
+textbook.read();
 		goToSchool();
+		
 	}
 
 	public static void main(String[] args)
@@ -52,6 +60,7 @@ public class Backpack
 		}
 
 		System.out.println("You put " + description + " in your Backpack");
+		JOptionPane.showMessageDialog(null, supply);
 	}
 
 	public void goToSchool()
