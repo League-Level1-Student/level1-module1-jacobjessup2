@@ -1,42 +1,44 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class BinaryConverter {
+public class BinaryConverter implements ActionListener {
 public static void main(String[] args) {
 new BinaryConverter().createUI();
 }
+JFrame frame = new JFrame();
+
+JPanel panel = new JPanel();
+
+JButton button = new JButton();
+
+JTextField textfield = new JTextField(20);
+
+JLabel label = new JLabel();
 
 void createUI() {
 
-JFrame frame = new JFrame();
+
 	frame.setVisible(true);
 	
-	JPanel panel = new JPanel();
-	
-	JButton button = new JButton();
-	
-	JTextField textfield = new JTextField(20);
-	
-	JLabel label = new JLabel();
-	
-	
-	
-	
-	
-	
-	
 	frame.add(panel);
+	
+	button.setText("Convert");
+	button.addActionListener(this);
 	
 	panel.add(button);
 	panel.add(textfield);
 	panel.add(label);
 	
-	
-	button.addMouseListener(this);
+	frame.pack();
+	frame.setTitle("Convert 8 bits of binary to ASCII");
 }
 	String convert(String input) {
         if(input.length() != 8){
@@ -57,5 +59,17 @@ JFrame frame = new JFrame();
              return "-";
         }
    }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton buttonPressed = (JButton) e.getSource();
+				
+		if (buttonPressed == button) {
+		convert(textfield.getText());
+		label.setText("jazz");
+		}
+				
+	}
 
 }
