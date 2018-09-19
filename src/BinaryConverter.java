@@ -40,6 +40,7 @@ void createUI() {
 	frame.pack();
 	frame.setTitle("Convert 8 bits of binary to ASCII");
 }
+
 	String convert(String input) {
         if(input.length() != 8){
              JOptionPane.showMessageDialog(null, "Enter 8 bits, silly!!!");
@@ -66,8 +67,9 @@ void createUI() {
 		JButton buttonPressed = (JButton) e.getSource();
 				
 		if (buttonPressed == button) {
-		convert(textfield.getText());
-		label.setText("jazz");
+		String value = textfield.getText();
+		label.setText(convert(value));
+		frame.pack();
 		}
 				
 	}
